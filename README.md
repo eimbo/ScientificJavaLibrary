@@ -1,10 +1,9 @@
 # Scientific Java Library
 
-
+<br><br>
 :mailbox_with_mail: To contribute, fork the repo, make changes, and submit a pull request. Maven should be installed on your machine.
 
-
-
+<br><br>
 ## Using NetBeans
 
 :one: Fork a copy of the project and clone the project to a local workspace directory 
@@ -19,7 +18,7 @@
 
 :six: Once you have made changes to your fork, submit a pull request
 
-
+<br><br>
 
 ## Using Eclipse
 
