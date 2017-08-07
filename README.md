@@ -1,6 +1,6 @@
 # Scientific Java Library
 
-:mailbox_with_no_mail: To contribute, fork the repo, make changes, and submit a pull request. Maven should be installed on your machine.
+:mailbox_with_mail: To contribute, fork the repo, make changes, and submit a pull request. Maven should be installed on your machine.
 
 ## Using NetBeans
 
