@@ -1,6 +1,9 @@
 # Scientific Java Library
 
+
 :mailbox_with_mail: To contribute, fork the repo, make changes, and submit a pull request. Maven should be installed on your machine.
+
+
 
 ## Using NetBeans
 
@@ -15,6 +18,7 @@
 :five: The .gitignore file should ignore nbactions.xml, /target/ when committing
 
 :six: Once you have made changes to your fork, submit a pull request
+
 
 
 ## Using Eclipse
