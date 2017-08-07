@@ -1,8 +1,6 @@
-# ScientificJavaLibrary
+# Scientific Java Library
 
-### To contribute, fork the repo, make changes, and submit a Pull Request.
- 
-Maven should be installed on your machine.
+To contribute, fork the repo, make changes, and submit a pull request.Maven should be installed on your machine.
 
 ## Using NetBeans
 * Fork a copy of the project and clone the project to a local workspace directory
