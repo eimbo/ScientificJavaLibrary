@@ -1,3 +1,5 @@
+package library;
+
 /**
  * This program uses the unit circle to estimate the value of Pi. 
  * 
@@ -7,20 +9,13 @@
  * 
  */
 
-package library;
-
 public class Pi {
 	private static final double PI = compute();
 	
 	static{
 		compute();
 	}
-	
-	public static void print(){
-		System.out.println(PI);
-	}
-	
-	
+
 	public static double compute(){
 		// TODO implement		
 		return 3.14;

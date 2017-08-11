@@ -1,3 +1,5 @@
+package library;
+
 /**
  * Complex.java
  * 
@@ -5,8 +7,6 @@
  * numbers.
  * 
  */
-
-package library;
 
 import java.util.Objects;
 

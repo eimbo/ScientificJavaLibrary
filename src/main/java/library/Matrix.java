@@ -1,3 +1,5 @@
+package library;
+
 /**
  * Matrix.java
  * 
@@ -6,7 +8,6 @@
  * 
  */
 
-package library;
 
 public class Matrix {
 	// TODO implement
