@@ -1,16 +1,15 @@
+/**
+ * Unit test for Statistics.java.
+ */
+
 package test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import library.Statistics;
+import scientific.Statistics;
 
-/**
- * Unit test for Statistics.java.
- */
-public class TestStatistics 
-    extends TestCase
-{
+public class TestStatistics extends TestCase {
     /**
      * Create the test case
      *
@@ -30,7 +29,7 @@ public class TestStatistics
     }
 
     /**
-     * Rigourous Test B-)
+     * Rigorous Test B-)
      */
     public void testApp()
     {

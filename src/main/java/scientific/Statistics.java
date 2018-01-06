@@ -6,7 +6,7 @@
  * 
  */
 
-package library;
+package scientific;
 
 import java.util.ArrayList;
 import java.util.Arrays;

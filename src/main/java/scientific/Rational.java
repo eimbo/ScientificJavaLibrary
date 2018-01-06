@@ -1,5 +1,3 @@
-package library;
-
 /*
  * Rational.java
  * 
@@ -7,6 +5,8 @@ package library;
  * numbers.
  *   
  */
+
+package scientific;
 
 public class Rational {
 	

@@ -1,12 +1,11 @@
-package library;
-
 /**
  * Matrix.java
  * 
  * Provides a Matrix object
  * 
- * 
  */
+
+package scientific;
 
 
 public class Matrix {

@@ -1,5 +1,3 @@
-package library;
-
 /**
  * 
  * Vector.java
@@ -7,6 +5,8 @@ package library;
  * Provides a Vector object and performs operations on vectors.
  * 
  */
+
+package scientific;
 
 public class Vector {
 	

@@ -1,5 +1,3 @@
-package library;
-
 /**
  * RandomNumbers.java
  * 
@@ -9,6 +7,8 @@ package library;
  * pseudorandom numbers in [0, 1).
  * 
  */
+
+package scientific;
 
 import java.util.Random;
 

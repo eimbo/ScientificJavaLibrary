@@ -1,4 +1,4 @@
-package library;
+package demo;
 
 import java.util.Random;
 
