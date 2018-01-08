@@ -31,7 +31,7 @@ public class Statistics {
 			median = data[data.length/2];
 		}
 		if(data.length%2==0){
-			double i =  data[(data.length/2) -1];
+			double i =  data[(data.length/2)];
 			double j = data[(data.length/2) +1];
 			median = (i+j)/2;
 		}
@@ -67,7 +67,7 @@ public class Statistics {
 	}
 	
 	/**
-	 * Used by the mode function's to avoid unneeded repetition of code
+	 * Used by the mode functions to avoid unneeded repetition of code
 	 * 
 	 * @param data	Array of doubles
 	 * @return		an array holding the array of modes in the first index and an array holding the number of occurrences of the mode(s)

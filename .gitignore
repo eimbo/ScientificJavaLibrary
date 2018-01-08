@@ -3,4 +3,5 @@
 .project
 /target/
 /bin
+info.text
 nbactions.xml
