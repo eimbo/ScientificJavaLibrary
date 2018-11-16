@@ -8,132 +8,102 @@
 
 package scientific;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Statistics {
 
-	public static double mean(double[] data){
-		double total = 0;
-		for(double d : data){
-			total = total + d;
+	private static void checkInputHasElements(double[] inputArray) {
+		if(inputArray.length == 0) {
+			throw new IllegalArgumentException("The array of values must contain at least one element");
 		}
+	}
 
-		return total/data.length;
+	public static double mean(double[] valuesToCalculateMeanOf){
+		checkInputHasElements(valuesToCalculateMeanOf);
+		double total = Arrays.stream(valuesToCalculateMeanOf).sum();
+		return total / valuesToCalculateMeanOf.length;
 	}
 	
-	public static double median(double[] data) {
-		double median = 0;
-		Arrays.sort(data);
-		if(data.length%2==1){
-			median = data[data.length/2];
+	public static double median(double[] valuesToCalculateMedianOf) {
+		checkInputHasElements(valuesToCalculateMedianOf);
+		Arrays.sort(valuesToCalculateMedianOf);
+		if(valuesToCalculateMedianOf.length%2==1){
+			return valuesToCalculateMedianOf[valuesToCalculateMedianOf.length/2];
+		} else {
+			double valueBelowMidpoint =  valuesToCalculateMedianOf[(valuesToCalculateMedianOf.length/2)-1];
+			double valueAboveMidpoint = valuesToCalculateMedianOf[(valuesToCalculateMedianOf.length/2)];
+			return  (valueBelowMidpoint+valueAboveMidpoint)/2;
 		}
-		if(data.length%2==0){
-			double i =  data[(data.length/2)];
-			double j = data[(data.length/2) +1];
-			median = (i+j)/2;
-		}
-		return median;
 	}
 	
 	/**
 	 * Finds the modes of the data
 	 * 
-	 * @param data	Array of doubles
+	 * @param valuesToCalculateModeOf	Array of doubles
 	 * @return		a double array of the data points with the most occurrences
 	 */
-	public static double[] mode(double[] data){
-		Double[] modesDoubles = modeHelper(data)[0];
-		double[] modes = new double[modesDoubles.length];
-		
-		// Changes Double to double
-		for( int index = 0; index < modesDoubles.length; index++ ) {
-			modes[index] = modesDoubles[index].doubleValue();
-		}
-		
-		return modes;
-	}
-	
-	/**
-	 * Finds the number of occurrences of the mode(s) of the data
-	 * 
-	 * @param data	Array of doubles
-	 * @return		an int representing the number of occurrences of the mode
-	 */
-	public static int modeCount(double[] data) {
-		return modeHelper(data)[1][0].intValue();
-	}
-	
-	/**
-	 * Used by the mode functions to avoid unneeded repetition of code
-	 * 
-	 * @param data	Array of doubles
-	 * @return		an array holding the array of modes in the first index and an array holding the number of occurrences of the mode(s)
-	 */
-	private static Double[][] modeHelper(double[] data) {
-		ArrayList<Double> modeValues = new ArrayList<Double>();
-		Double maxModeCount = new Double(0);
-		
-		// The key of this map is a value from data
-		// The value of this map is the number of occurrences of the data point
-		Map<Double, Double> valueOccurrences = new HashMap<Double, Double>();
-		
-		for(int index = 0; index < data.length; index++) {
-			Double dataValue = new Double(data[index]);
-			
-			// Update dataValue's number of occurrences
-			if(valueOccurrences.containsKey(dataValue)) {
-				valueOccurrences.put(dataValue, valueOccurrences.get(dataValue) + 1);
+	public static double[] mode(double[] valuesToCalculateModeOf){
+		checkInputHasElements(valuesToCalculateModeOf);
+		ArrayList<Double> maximumValues = new ArrayList<>();
+		int currentMaximumCount = 0;
+		Map<Double,Integer>  valueToCountMap = new HashMap<>();
+		for (double valueInArray : valuesToCalculateModeOf) {
+			if(!valueToCountMap.containsKey(valueInArray)) {
+				valueToCountMap.put(valueInArray,1);
+				if(currentMaximumCount <= 1) {
+					currentMaximumCount = 1;
+					maximumValues.add(valueInArray);
+				}
 			} else {
-				valueOccurrences.put(dataValue, new Double(1));
-			}
-			
-			// Update modeValues and maxModeCount accordingly
-			Double numOccurrences = valueOccurrences.get(dataValue);
-			if(numOccurrences.doubleValue() > maxModeCount.doubleValue()) {
-				modeValues = new ArrayList<Double>();
-				modeValues.add(dataValue);
-				maxModeCount = numOccurrences;
-			} else if(numOccurrences.doubleValue() == maxModeCount.doubleValue()) {
-				modeValues.add(dataValue);
+				int currentNumberOfOccurrences = valueToCountMap.get(valueInArray)+1;
+				if(currentMaximumCount < currentNumberOfOccurrences) {
+					currentMaximumCount = currentNumberOfOccurrences;
+					maximumValues.clear();
+					maximumValues.add(valueInArray);
+				} else if(currentNumberOfOccurrences == currentMaximumCount) {
+					maximumValues.add(valueInArray);
+				}
+				valueToCountMap.replace(valueInArray,currentNumberOfOccurrences);
 			}
 		}
-		
-		// Create an array to return that holds the modes and the mode count
-		// First index is the array of modes, second is an array of the mode count
-		Double[] modeValuesArray = new Double[modeValues.size()];
-		modeValuesArray = modeValues.toArray(modeValuesArray);
-		
-		Double[][] results = {modeValuesArray, {maxModeCount}};
-		return results;
-	}
-	
-	public static double minimun(double[] data) {
-		Arrays.sort(data);
-		return data[0];
+
+		double[] arrayOfMaximumOccurrences = new double[maximumValues.size()];
+		int index = 0;
+		for (Double modeValue : maximumValues) {
+			arrayOfMaximumOccurrences[index] = modeValue;
+			index++;
+		}
+
+		return arrayOfMaximumOccurrences;
 	}
 
-	public static double maximum(double[] data) {
-		Arrays.sort(data);
-		return data[data.length - 1];
+	public static double minimum(double[] valuesToCalculateMinimumOf) {
+		checkInputHasElements(valuesToCalculateMinimumOf);
+		Arrays.sort(valuesToCalculateMinimumOf);
+		return valuesToCalculateMinimumOf[0];
 	}
 
-	public static double sample_variance(double[] data) {
-		double mean = mean(data); 
-		double sum = 0;
-		
-		for(int i = 0; i < data.length; i++){
-			double diff = data[i]-mean;
-			sum  = sum + (diff * diff);
+	public static double maximum(double[] valuesToCalculateMaximumOf) {
+		checkInputHasElements(valuesToCalculateMaximumOf);
+		Arrays.sort(valuesToCalculateMaximumOf);
+		return valuesToCalculateMaximumOf[valuesToCalculateMaximumOf.length - 1];
+	}
+
+	public static double variance(double[] valuesToCalculateVarianceOf) {
+		checkInputHasElements(valuesToCalculateVarianceOf);
+		double mean = mean(valuesToCalculateVarianceOf);
+		double sigmaDataPointsTakeMean = 0;
+
+		for (double dataPoint : valuesToCalculateVarianceOf) {
+			double valueOfDataPointTakeMean = dataPoint - mean;
+			sigmaDataPointsTakeMean += Math.pow(valueOfDataPointTakeMean,2);
 		}
 		
-		return sum / data.length;
+		return sigmaDataPointsTakeMean / valuesToCalculateVarianceOf.length;
 	}
 
-	public static double sample_std_deviation(double[] data) {
-		return Math.sqrt(sample_variance(data));
+	public static double standardDeviation(double[] valuesToCalculateStandardDeviationOf) {
+		return Math.sqrt(variance(valuesToCalculateStandardDeviationOf));
 	}
 
 }
