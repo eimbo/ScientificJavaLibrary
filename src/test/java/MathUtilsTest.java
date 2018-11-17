@@ -2,6 +2,8 @@ import org.junit.Test;
 import scientific.MathUtils;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class MathUtilsTest {
 
@@ -51,6 +53,31 @@ public class MathUtilsTest {
     public void lowestCommonMultipleCorrectFor0Value() {
         int lowestCommonMultiple = MathUtils.lowestCommonMultiple(0,4);
         assertEquals(0,lowestCommonMultiple);
+    }
+
+    @Test
+    public void isPrimeCorrectFor0Value() {
+        assertFalse(MathUtils.isPrime(0));
+    }
+
+    @Test
+    public void isPrimeCorrectFor2() {
+        assertTrue(MathUtils.isPrime(2));
+    }
+
+    @Test
+    public void isPrimeCorrectFor13() {
+        assertTrue(MathUtils.isPrime(13));
+    }
+
+    @Test
+    public void isPrimeCorrectFor10() {
+        assertFalse(MathUtils.isPrime(10));
+    }
+
+    @Test
+    public void isPrimeCorrectForNegative() {
+        assertFalse(MathUtils.isPrime(-3));
     }
 
 }

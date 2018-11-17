@@ -14,4 +14,19 @@ public class MathUtils {
         return integerOne * (integerTwo/greatestCommonDivisor(integerOne,integerTwo));
     }
 
+    public static boolean isPrime(int valueToCheckIfPrime) {
+        if(valueToCheckIfPrime <= 3 && valueToCheckIfPrime > 1) {
+            return true;
+        } else if(valueToCheckIfPrime % 2 == 0 || valueToCheckIfPrime % 3 == 0) {
+            return false;
+        } else {
+            for (int valueToCheckIfDivisibleBy = 5; Math.pow(valueToCheckIfDivisibleBy,2) <= valueToCheckIfPrime; valueToCheckIfDivisibleBy+=6) {
+                if(valueToCheckIfPrime % valueToCheckIfDivisibleBy == 0 || valueToCheckIfPrime%(valueToCheckIfDivisibleBy + 2) == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }
