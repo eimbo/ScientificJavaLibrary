@@ -10,4 +10,8 @@ public class MathUtils {
         return bigIntegerOne.gcd(bigIntegerTwo).intValue();
     }
 
+    public static int lowestCommonMultiple(int integerOne, int integerTwo) {
+        return integerOne * (integerTwo/greatestCommonDivisor(integerOne,integerTwo));
+    }
+
 }

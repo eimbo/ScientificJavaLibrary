@@ -29,4 +29,28 @@ public class MathUtilsTest {
         assertEquals(5,greatestCommonDivisor);
     }
 
+    @Test
+    public void lowestCommonMultipleCorrectForSameNumber() {
+        int lowestCommonMultiple = MathUtils.lowestCommonMultiple(2,2);
+        assertEquals(2,lowestCommonMultiple);
+    }
+
+    @Test
+    public void lowestCommonMultipleCorrectForPositiveNumbers() {
+        int lowestCommonMultiple = MathUtils.lowestCommonMultiple(2,4);
+        assertEquals(4,lowestCommonMultiple);
+    }
+
+    @Test
+    public void lowestCommonMultipleCorrectForNegativeNumbers() {
+        int lowestCommonMultiple = MathUtils.lowestCommonMultiple(-2,-4);
+        assertEquals(4,lowestCommonMultiple);
+    }
+
+    @Test
+    public void lowestCommonMultipleCorrectFor0Value() {
+        int lowestCommonMultiple = MathUtils.lowestCommonMultiple(0,4);
+        assertEquals(0,lowestCommonMultiple);
+    }
+
 }
