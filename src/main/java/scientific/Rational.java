@@ -6,8 +6,6 @@
 package scientific;
 
 public class Rational implements Comparable<Rational> {
-	
-	private static Rational zero = new Rational(0, 1);
 
 	private final int numerator;
     private final int denominator;
@@ -55,8 +53,8 @@ public class Rational implements Comparable<Rational> {
     	return denominator;
     }
     
-    public Rational abs(Rational a){
-    	return zero;
+    public double abs(){
+    	return Math.abs(toDouble());
     }
     
     public Rational negative(){
@@ -86,7 +84,7 @@ public class Rational implements Comparable<Rational> {
 	}
 
     public double toDouble(){    	
-    	return (double) numerator / denominator;
+    	return (double)numerator / (double)denominator;
     }
 
 	@Override
