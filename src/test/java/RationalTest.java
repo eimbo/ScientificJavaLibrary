@@ -158,4 +158,12 @@ public class RationalTest {
         assertEquals(new Rational(2,3),Rational.from("2/3"));
     }
 
+    @Test
+    public void simplifyReturnsCorrectValueForHalf() {
+        Rational unsimplifiedHalf = new Rational(2,4);
+        Rational simplifiedRational = unsimplifiedHalf.simplify();
+        assertEquals(simplifiedRational.getNumerator(),1);
+        assertEquals(simplifiedRational.getDenominator(),2);
+    }
+
 }

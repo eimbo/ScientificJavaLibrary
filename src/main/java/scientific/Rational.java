@@ -47,6 +47,14 @@ public class Rational implements Comparable<Rational> {
     	int sumOfNewNumerators = currentNumeratorTimesAdditionalCurrentDivisor+additionalNumeratorTimesCurrentDivisor;
     	return new Rational(sumOfNewNumerators,newDenominator);
     }
+
+	public int getNumerator(){
+		return numerator;
+	}
+
+	public int getDenominator(){
+		return denominator;
+	}
     
     public Rational subtract(Rational valueToSubtract){
     	return this.add(valueToSubtract.negative());
@@ -60,25 +68,22 @@ public class Rational implements Comparable<Rational> {
     public Rational divide(Rational rationalToDivideBy){
     	return multiply(rationalToDivideBy.reciprocal());
     }
-    
-    public int getNumerator(){
-    	return numerator;
-    }
-    
-    public int getDenominator(){
-    	return denominator;
-    }
-    
+
+	public Rational negative(){
+		return new Rational(-numerator,denominator);
+	}
+
+	public Rational reciprocal(){
+		return new Rational(denominator,numerator);
+	}
+
+	public Rational simplify() {
+    	int greatestCommonDivisor = MathUtils.greatestCommonDivisor(numerator,denominator);
+    	return new Rational(numerator/greatestCommonDivisor,denominator/greatestCommonDivisor);
+	}
+
     public double abs(){
     	return Math.abs(toDouble());
-    }
-    
-    public Rational negative(){
-    	return new Rational(-numerator,denominator);
-    }
-
-    public Rational reciprocal(){
-    	return new Rational(denominator,numerator);
     }
     
     @Override
