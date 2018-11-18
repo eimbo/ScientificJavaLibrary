@@ -82,8 +82,13 @@ public class Rational implements Comparable<Rational> {
     }
     
     @Override
-    public int compareTo(Rational a){
-    	return (int) (this.toDouble()-a.toDouble());
+    public int compareTo(Rational rationalToCompareTo){
+    	if(toDouble() == rationalToCompareTo.toDouble()) {
+    		return 0;
+		} else if(toDouble() > rationalToCompareTo.toDouble()) {
+    		return 1;
+		}
+		return -1;
     }
 
 	@Override
