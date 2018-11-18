@@ -5,7 +5,12 @@
 
 package scientific;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Rational implements Comparable<Rational> {
+
+	private static Pattern compiledRegexRationalFrom = Pattern.compile("[0-9]+/[0-9]+");
 
 	private final int numerator;
     private final int denominator;
@@ -23,6 +28,17 @@ public class Rational implements Comparable<Rational> {
     		this.denominator = denominator;
     	}
     }
+
+    public static Rational from(String stringToGenerateRationalOn) {
+		Matcher regexMatcher = compiledRegexRationalFrom.matcher(stringToGenerateRationalOn);
+		if(!regexMatcher.matches()) {
+			throw new IllegalArgumentException("Invalid format for Rational.from, must be in format a/b");
+		}
+    	String[] splitOnSlash = stringToGenerateRationalOn.split("/");
+		int numerator = Integer.parseInt(splitOnSlash[0]);
+    	int denominator = Integer.parseInt(splitOnSlash[1]);
+    	return new Rational(numerator,denominator);
+	}
     
     public Rational add(Rational rationalToAdd){
     	int newDenominator = denominator*rationalToAdd.denominator;

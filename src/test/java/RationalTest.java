@@ -123,4 +123,39 @@ public class RationalTest {
         assertEquals("2/4",half.toString());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void fromThrowsWhenStringIsText() {
+        Rational.from("hello world");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void fromThrowsWhenMissingNumerator() {
+        Rational.from("/6");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void fromThrowsWhenNumeratorLetter() {
+        Rational.from("a/6");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void fromThrowsWhenMissingSlash() {
+        Rational.from("65");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void fromThrowsWhenMissingDenominator() {
+        Rational.from("6/");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void fromThrowsWhenDenominatorLetter() {
+        Rational.from("6/a");
+    }
+
+    @Test
+    public void fromReturnsRationalWhenValidStringPassed() {
+        assertEquals(new Rational(2,3),Rational.from("2/3"));
+    }
+
 }
