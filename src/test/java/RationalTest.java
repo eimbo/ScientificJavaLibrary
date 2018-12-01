@@ -22,6 +22,14 @@ public class RationalTest {
     }
 
     @Test
+    public void correctlyAddsIntegerValue() {
+    	Rational threeQuarters = new Rational(3, 4);
+    	Rational sevenFourths = threeQuarters.add(1);
+    	assertEquals(7, sevenFourths.getNumerator());
+    	assertEquals(4, sevenFourths.getDenominator());
+    }
+    
+    @Test
     public void correctlyAddsNegativeRational() {
         Rational half = new Rational(2,4);
         Rational minusQuarter = new Rational(-1,4);

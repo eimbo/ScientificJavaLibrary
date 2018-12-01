@@ -47,6 +47,10 @@ public class Rational implements Comparable<Rational> {
     	int sumOfNewNumerators = currentNumeratorTimesAdditionalCurrentDivisor+additionalNumeratorTimesCurrentDivisor;
     	return new Rational(sumOfNewNumerators,newDenominator);
     }
+    
+    public Rational add(int integerValue) {
+    	return new Rational(numerator + (integerValue * denominator), denominator);
+    }
 
 	public int getNumerator(){
 		return numerator;
