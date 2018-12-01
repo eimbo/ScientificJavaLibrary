@@ -48,8 +48,8 @@ public class Rational implements Comparable<Rational> {
     	return new Rational(sumOfNewNumerators,newDenominator);
     }
     
-    public Rational add(int integerValue) {
-    	return new Rational(numerator + (integerValue * denominator), denominator);
+    public Rational add(int integerToAdd) {
+    	return new Rational(numerator + (integerToAdd * denominator), denominator);
     }
 
 	public int getNumerator(){
@@ -62,6 +62,10 @@ public class Rational implements Comparable<Rational> {
     
     public Rational subtract(Rational valueToSubtract){
     	return this.add(valueToSubtract.negative());
+    }
+    
+    public Rational subtract(int integerToSubtract) {
+    	return this.add(new Rational (integerToSubtract * denominator, denominator).negative());
     }
     
     public Rational multiply(Rational rationalToMultiply){

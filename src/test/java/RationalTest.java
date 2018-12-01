@@ -48,6 +48,18 @@ public class RationalTest {
     }
 
     @Test
+    public void correctlySubtractIntegerValue() {
+    	Rational sevenFourths = new Rational(7, 4);
+    	Rational threeQuarters = sevenFourths.subtract(1);
+    	assertEquals(12, threeQuarters.getNumerator());
+    	assertEquals(16, threeQuarters.getDenominator());
+    	
+    	Rational minusQuarter = sevenFourths.subtract(2);
+    	assertEquals(-4, minusQuarter.getNumerator());
+    	assertEquals(16, minusQuarter.getDenominator());
+    }
+    
+    @Test
     public void correctlySubtracts2RationalsForNegativeAnswer() {
         Rational half = new Rational(2,4);
         Rational threeQuarters = new Rational(3,4);
