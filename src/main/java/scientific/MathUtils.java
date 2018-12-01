@@ -1,6 +1,8 @@
 package scientific;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MathUtils {
 
@@ -27,6 +29,37 @@ public class MathUtils {
             }
         }
         return true;
+    }
+    
+    public static List<Integer> uniqueFactorization(int numberToFactor) {
+    	
+    	List<Integer> factors = new ArrayList<Integer>();
+    	double squareRoot = Math.sqrt(numberToFactor);
+
+    	if (numberToFactor == 0) { return factors;	}
+    	
+    	if (numberToFactor < 0) {
+    		factors.add(-1);
+    		numberToFactor *= -1;
+    	}
+ 
+    	while(numberToFactor % 2 == 0) {
+    		factors.add(2);
+    		numberToFactor /= 2;	
+    	}
+    	
+    	for(int i = 3; i <= squareRoot; i = i + 2) {
+    		while(numberToFactor % i == 0) {
+    			factors.add(i);
+    			numberToFactor /= i;
+    		}
+    	}
+    	
+    	if(numberToFactor != 1) {
+    		factors.add(numberToFactor);
+    	}
+    	
+    	return factors;
     }
 
 }

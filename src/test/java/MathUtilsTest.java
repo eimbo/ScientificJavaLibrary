@@ -5,6 +5,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MathUtilsTest {
 
     @Test
@@ -78,6 +81,42 @@ public class MathUtilsTest {
     @Test
     public void isPrimeCorrectForNegative() {
         assertFalse(MathUtils.isPrime(-3));
+    }
+    
+    @Test
+    public void uniqueFactorization() {
+    	List<Integer> result = MathUtils.uniqueFactorization(184);
+    	
+    	List<Integer> source = new ArrayList<Integer>(result);
+    	List<Integer> destination = new ArrayList<Integer>(result);
+    	
+    	result.add(-1);
+    	result.remove(result.indexOf(23));
+    	source.removeAll(result);
+    	result.removeAll(destination);
+
+    	assertTrue(result.size() == 1);
+    	assertTrue(result.get(0) == -1);
+    	assertTrue(source.size() == 1);
+    	assertTrue(source.get(0) == 23);
+    }
+    
+    @Test
+    public void uniqueFactorizationOfNegative() {
+    	List<Integer> result = MathUtils.uniqueFactorization(-184);
+    	
+    	List<Integer> source = new ArrayList<Integer>(result);
+    	List<Integer> destination = new ArrayList<Integer>(result);
+    	
+    	result.add(-2);
+    	result.remove(result.indexOf(23));
+    	source.removeAll(result);
+    	result.removeAll(destination);
+
+    	assertTrue(result.size() == 1);
+    	assertTrue(result.get(0) == -2);
+    	assertTrue(source.size() == 1);
+    	assertTrue(source.get(0) == 23);
     }
 
 }
