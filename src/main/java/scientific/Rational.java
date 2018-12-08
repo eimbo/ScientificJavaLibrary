@@ -1,13 +1,11 @@
-/*
- * Provides a Rational number class and performs operations on rational numbers.
- *   
- */
-
 package scientific;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/** 
+ * Provides a Rational number class and performs operations on rational numbers. 
+ */
 public class Rational implements Comparable<Rational> {
 
 	private static Pattern compiledRegexRationalFrom = Pattern.compile("[0-9]+/[0-9]+");

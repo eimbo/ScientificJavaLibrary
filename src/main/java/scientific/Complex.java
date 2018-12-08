@@ -1,12 +1,10 @@
-/**
- * Provides a Complex number class and performs operations on complex numbers.
- * 
- */
-
 package scientific;
 
 import java.util.Objects;
 
+/**
+ * Provides a Complex number class and performs operations on complex numbers.
+ */
 public class Complex {
 	
     private final double re;   

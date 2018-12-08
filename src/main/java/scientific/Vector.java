@@ -1,29 +1,23 @@
-/**
- * 
- * Vector.java
- * 
- * Provides a Vector object and performs operations on vectors.
- * 
- */
-
 package scientific;
 
+/**
+ * Provides a Vector object and performs operations on vectors. 
+ */
 public class Vector {
 	
 	// TODO implement
 	
-	// copy()
-	// cross(Vector that)
+	// crossProduct(Vector that)
 	// equals(Vector that, Comparator<E> comp)
-	// getDimension()
-	// hashCode()
+	// getDimension() // length of the vector
 	// minus(Vector that)
 	// plus(Vector that) 
-	// opposite()
-	// scale(F k)
 	// times(Vector that)
+	// inverse()
+	// scale(F k)
 	// toString()
 	// toText()
+	// hashCode()
 	
 	
 }

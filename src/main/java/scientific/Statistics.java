@@ -1,15 +1,10 @@
-/**
- * Statistics.java
- * 
- * This class provides statistical functions to 
- * compute values associated with a data set. 
- * 
- */
-
 package scientific;
 
 import java.util.*;
 
+/**
+ * Provides statistical functions to compute values associated with a data set. 
+ */
 public class Statistics {
 
 	private static void checkInputHasElements(double[] inputArray) {
