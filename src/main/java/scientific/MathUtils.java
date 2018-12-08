@@ -4,18 +4,35 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
+/** 
+ * Performs common numerical operations.
+ */
 public class MathUtils {
 
+	/** GCD operation.
+	 * @param integerOne
+	 * @param integerTwo
+	 * @return the GCD.
+	 */
     public static int greatestCommonDivisor(int integerOne, int integerTwo) {
         BigInteger bigIntegerOne = BigInteger.valueOf(integerOne);
         BigInteger bigIntegerTwo = BigInteger.valueOf(integerTwo);
         return bigIntegerOne.gcd(bigIntegerTwo).intValue();
     }
 
+    /** LCM operation.
+     * @param integerOne
+     * @param integerTwo
+     * @return the LCM.
+     */
     public static int lowestCommonMultiple(int integerOne, int integerTwo) {
         return integerOne * (integerTwo/greatestCommonDivisor(integerOne,integerTwo));
     }
 
+    /** Checks integer prime number.
+     * @param valueToCheckIfPrime
+     * @return a boolean if is a prime number.
+     */
     public static boolean isPrime(int valueToCheckIfPrime) {
         if(valueToCheckIfPrime <= 3 && valueToCheckIfPrime > 1) {
             return true;
@@ -31,8 +48,11 @@ public class MathUtils {
         return true;
     }
     
+    /** Performs unique factorization on an integer.
+     * @param numberToFactor
+     * @return a List of unique factors.
+     */
     public static List<Integer> uniqueFactorization(int numberToFactor) {
-    	
     	List<Integer> factors = new ArrayList<Integer>();
     	double squareRoot = Math.sqrt(numberToFactor);
 
@@ -55,9 +75,7 @@ public class MathUtils {
     		}
     	}
     	
-    	if(numberToFactor != 1) {
-    		factors.add(numberToFactor);
-    	}
+    	if(numberToFactor != 1) { factors.add(numberToFactor); }
     	
     	return factors;
     }
