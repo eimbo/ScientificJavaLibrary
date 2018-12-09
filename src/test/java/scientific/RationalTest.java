@@ -1,3 +1,4 @@
+package scientific;
 import org.junit.Test;
 import scientific.Rational;
 
