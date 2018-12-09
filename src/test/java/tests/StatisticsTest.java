@@ -1,4 +1,4 @@
-package scientific;
+package tests;
 import org.junit.Test;
 import scientific.Statistics;
 
