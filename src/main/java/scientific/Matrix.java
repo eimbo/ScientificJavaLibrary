@@ -45,4 +45,17 @@ public class Matrix {
 		matrix[y][x] = value;
 	}
 
+	public int det(){
+		if(width != height)
+			return -1;
+
+		if(width == 1)
+			return matrix[0][0];
+		else if(width == 2)
+			return matrix[0][0]*matrix[1][1]+matrix[0][1]*matrix[1][0];
+		else
+			return -1;
+		//TODO add determinant for more difficult sizes
+	}
+
 }
