@@ -1,8 +1,12 @@
 package tests;
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
 import scientific.Rational;
 
-import static org.junit.Assert.assertEquals;
 
 public class RationalTest {
 
@@ -144,34 +148,46 @@ public class RationalTest {
         assertEquals("2/4",half.toString());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void fromThrowsWhenStringIsText() {
-        Rational.from("hello world");
+		assertThrows(IllegalArgumentException.class, () -> {
+			Rational.from("hello world");
+		});
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void fromThrowsWhenMissingNumerator() {
-        Rational.from("/6");
+		assertThrows(IllegalArgumentException.class, () -> {
+			Rational.from("/6");
+		});
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void fromThrowsWhenNumeratorLetter() {
-        Rational.from("a/6");
+		assertThrows(IllegalArgumentException.class, () -> {
+			Rational.from("a/6");
+		});
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void fromThrowsWhenMissingSlash() {
-        Rational.from("65");
+		assertThrows(IllegalArgumentException.class, () -> {
+			Rational.from("65");
+		});
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void fromThrowsWhenMissingDenominator() {
-        Rational.from("6/");
+		assertThrows(IllegalArgumentException.class, () -> {
+			Rational.from("6/");
+		});
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void fromThrowsWhenDenominatorLetter() {
-        Rational.from("6/a");
+		assertThrows(IllegalArgumentException.class, () -> {
+			Rational.from("6/a");
+		});
     }
 
     @Test

@@ -1,9 +1,11 @@
 package tests;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
 import scientific.Complex;
 
-import static org.junit.Assert.assertEquals;
 
 
 public class ComplexTest {
