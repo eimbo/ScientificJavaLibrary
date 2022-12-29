@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import scientific.Complex;
+import boweblogic.scientific.algebra.Complex;
 
 
 

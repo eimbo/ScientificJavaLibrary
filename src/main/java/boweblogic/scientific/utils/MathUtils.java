@@ -1,4 +1,4 @@
-package scientific;
+package boweblogic.scientific.utils;
 
 import java.math.BigInteger;
 import java.util.ArrayList;

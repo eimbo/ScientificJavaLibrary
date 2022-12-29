@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import scientific.Statistics;
+import boweblogic.scientific.statistics.Statistics;
 
 public class StatisticsTest {
 

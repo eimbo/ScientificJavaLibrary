@@ -5,7 +5,7 @@
  * 
  */
 
-package scientific;
+package boweblogic.scientific.discrete;
 
 
 public class Matrix {

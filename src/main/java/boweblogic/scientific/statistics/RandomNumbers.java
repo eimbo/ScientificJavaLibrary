@@ -1,5 +1,5 @@
 
-package scientific;
+package boweblogic.scientific.statistics;
 
 /**
  * Generates pseudorandom numbers from different distributions 

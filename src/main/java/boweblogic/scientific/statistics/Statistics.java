@@ -1,4 +1,4 @@
-package scientific;
+package boweblogic.scientific.statistics;
 
 import java.util.*;
 

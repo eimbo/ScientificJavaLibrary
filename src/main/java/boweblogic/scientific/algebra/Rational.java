@@ -1,7 +1,9 @@
-package scientific;
+package boweblogic.scientific.algebra;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import boweblogic.scientific.utils.MathUtils;
 
 /** 
  * Provides a Rational number class and performs operations on rational numbers. 

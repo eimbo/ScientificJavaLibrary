@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import scientific.Rational;
+import boweblogic.scientific.algebra.Rational;
 
 
 public class RationalTest {

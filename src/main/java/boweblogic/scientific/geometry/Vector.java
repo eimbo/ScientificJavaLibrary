@@ -1,4 +1,4 @@
-package scientific;
+package boweblogic.scientific.geometry;
 
 /**
  * Provides a Vector object and performs operations on vectors. 

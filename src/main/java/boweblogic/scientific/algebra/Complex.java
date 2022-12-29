@@ -1,4 +1,4 @@
-package scientific;
+package boweblogic.scientific.algebra;
 
 import java.util.Objects;
 
