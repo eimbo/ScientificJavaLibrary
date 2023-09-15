@@ -1,6 +1,8 @@
 package boweblogic.scientific.algebra;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Provides a Complex number class and performs operations on complex numbers.
@@ -20,6 +22,27 @@ public class Complex {
         	return re + " - " + (-im) + "i";
         }
         return re + " + " + im + "i";
+    }
+
+    public static Complex from(String stringToGenerateComplexOn) {
+        // Define a regular expression to match the real and imaginary parts
+        String regex = "([-+]?\\d*\\.?\\d+)\\s*([-+])\\s*(\\d*\\.?\\d+)i";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(stringToGenerateComplexOn);
+
+        if (matcher.find()) {
+            double realPart = Double.parseDouble(matcher.group(1));
+            double imaginaryPart = Double.parseDouble(matcher.group(3));
+            String operator = matcher.group(2);
+
+            if ("-".equals(operator)) {
+                imaginaryPart *= -1; // Adjust the sign if the operator is '-'
+            }
+
+            return new Complex(realPart, imaginaryPart);
+        } else {
+            throw new IllegalArgumentException("Invalid complex number format: " + stringToGenerateComplexOn);
+        }
     }
 
     public double abs() {

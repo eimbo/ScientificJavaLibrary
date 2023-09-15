@@ -11,6 +11,20 @@ import boweblogic.scientific.algebra.Complex;
 public class ComplexTest {
 
     @Test
+    public void correctlyGeneratesComplexFromString(){
+        String complexNumberStr = "-3.5 +2.7i";
+        Complex value = Complex.from(complexNumberStr);
+        assertEquals(-3.5, value.real());
+        assertEquals(2.7, value.imaginary());
+
+        String complexNumberStr2 = "3.5 - 2.7i";
+        Complex value2 = Complex.from(complexNumberStr2);
+        assertEquals(3.5, value2.real());
+        assertEquals(-2.7, value2.imaginary());
+
+    }
+
+    @Test
     public void correctlyAssignsReAndImParts() {
         Complex value = new Complex(2,4);
         assertEquals(2,value.real(), 0);
